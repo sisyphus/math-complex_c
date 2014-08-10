@@ -235,12 +235,12 @@ Math::Complex_C - perl interface to C's complex.h functions.
 
 =head1 FUNCTIONS
 
-   $rop = Math::Complex_C->new([$re, [$im]]);
-   $rop = Math::Complex_C::new([$re, [$im]]);
-   $rop = new Math::Complex_C([$re, [$im]]);
-   $ropl = Math::Complex_C::Long->new([$re, [$im]]);
-   $ropl = Math::Complex_C::Long::new([$re, [$im]]);
-   $ropl = new Math::Complex_C::Long([$re, [$im]]);
+   $rop = Math::Complex_C->new($re, $im);
+   $rop = Math::Complex_C::new($re, $im);
+   $rop = new Math::Complex_C($re, $im);
+   $ropl = Math::Complex_C::Long->new($re, $im);
+   $ropl = Math::Complex_C::Long::new($re, $im);
+   $ropl = new Math::Complex_C::Long($re, $im);
     $rop/$ropl is a Math::Complex_C/Math::Complex_C::Long object;
     $re and $im are the real and imaginary values (respectively) that $rop
     holds. They can be an integer (signed or unsigned) or a floating point
