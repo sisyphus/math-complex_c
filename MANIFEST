@@ -9,6 +9,7 @@ t/abs_arg.t
 t/arith.t
 t/bool.t
 t/conj_proj.t
+t/log_exp.t
 t/nan.t
 t/new.t
 t/overload_string.t
