@@ -40,8 +40,8 @@ void long_set_prec(pTHX_ int x) {
     _MATH_COMPLEX_C_LONG_DIGITS = x;
 }
 
-SV * long_get_prec(pTHX) {
-    return newSVuv(_MATH_COMPLEX_C_LONG_DIGITS);
+int long_get_prec(void) {
+    return _MATH_COMPLEX_C_LONG_DIGITS;
 }
 
 int _is_nan(long double x) {
@@ -103,7 +103,7 @@ SV * create_cl(pTHX) {
      SV * obj_ref, * obj;
 
      New(42, pc, 1, MATH_COMPLEX);
-     if(pc == NULL) croak("Failed to allocate memory in create() function");
+     if(pc == NULL) croak("Failed to allocate memory in create_cl function");
 
      obj_ref = newSV(0);
      obj = newSVrv(obj_ref, "Math::Complex_C::Long");
@@ -396,7 +396,7 @@ SV * _overload_pow(pTHX_ SV * a, SV * b, SV * third) {
      SV * obj_ref, * obj;
 
      New(42, pc, 1, MATH_COMPLEX);
-     if(pc == NULL) croak("Failed to allocate memory in _overload_pow() function");
+     if(pc == NULL) croak("Failed to allocate memory in _overload_pow function");
 
      obj_ref = newSV(0);
      obj = newSVrv(obj_ref, "Math::Complex_C::Long");
@@ -425,7 +425,7 @@ SV * _overload_mul(pTHX_ SV * a, SV * b, SV * third) {
      SV * obj_ref, * obj;
 
      New(42, pc, 1, MATH_COMPLEX);
-     if(pc == NULL) croak("Failed to allocate memory in _overload_mul() function");
+     if(pc == NULL) croak("Failed to allocate memory in _overload_mul function");
 
      obj_ref = newSV(0);
      obj = newSVrv(obj_ref, "Math::Complex_C::Long");
@@ -464,7 +464,7 @@ SV * _overload_add(pTHX_ SV * a, SV * b, SV * third) {
      SV * obj_ref, * obj;
 
      New(42, pc, 1, MATH_COMPLEX);
-     if(pc == NULL) croak("Failed to allocate memory in _overload_add() function");
+     if(pc == NULL) croak("Failed to allocate memory in _overload_add function");
 
      obj_ref = newSV(0);
      obj = newSVrv(obj_ref, "Math::Complex_C::Long");
@@ -503,7 +503,7 @@ SV * _overload_div(pTHX_ SV * a, SV * b, SV * third) {
      SV * obj_ref, * obj;
 
      New(42, pc, 1, MATH_COMPLEX);
-     if(pc == NULL) croak("Failed to allocate memory in _overload_div() function");
+     if(pc == NULL) croak("Failed to allocate memory in _overload_div function");
 
      obj_ref = newSV(0);
      obj = newSVrv(obj_ref, "Math::Complex_C::Long");
@@ -545,7 +545,7 @@ SV * _overload_sub(pTHX_ SV * a, SV * b, SV * third) {
      SV * obj_ref, * obj;
 
      New(42, pc, 1, MATH_COMPLEX);
-     if(pc == NULL) croak("Failed to allocate memory in _overload_sub() function");
+     if(pc == NULL) croak("Failed to allocate memory in _overload_sub function");
 
      obj_ref = newSV(0);
      obj = newSVrv(obj_ref, "Math::Complex_C::Long");
@@ -587,7 +587,7 @@ SV * _overload_sqrt(pTHX_ SV * a, SV * b, SV * third) {
      SV * obj_ref, * obj;
 
      New(42, pc, 1, MATH_COMPLEX);
-     if(pc == NULL) croak("Failed to allocate memory in _overload_sqrt() function");
+     if(pc == NULL) croak("Failed to allocate memory in _overload_sqrt function");
 
      obj_ref = newSV(0);
      obj = newSVrv(obj_ref, "Math::Complex_C::Long");
@@ -749,7 +749,7 @@ SV * _overload_copy(pTHX_ SV * a, SV * second, SV * third) {
      SV * obj_ref, * obj;
 
      New(42, pc, 1, MATH_COMPLEX);
-     if(pc == NULL) croak("Failed to allocate memory in _overload_copy() function");
+     if(pc == NULL) croak("Failed to allocate memory in _overload_copy function");
 
      obj_ref = newSV(0);
      obj = newSVrv(obj_ref, "Math::Complex_C::Long");
@@ -772,7 +772,7 @@ SV * _overload_exp(pTHX_ SV * a, SV * b, SV * third) {
      SV * obj_ref, * obj;
 
      New(42, pc, 1, MATH_COMPLEX);
-     if(pc == NULL) croak("Failed to allocate memory in _overload_exp() function");
+     if(pc == NULL) croak("Failed to allocate memory in _overload_exp function");
 
      obj_ref = newSV(0);
      obj = newSVrv(obj_ref, "Math::Complex_C::Long");
@@ -789,7 +789,7 @@ SV * _overload_log(pTHX_ SV * a, SV * b, SV * third) {
      SV * obj_ref, * obj;
 
      New(42, pc, 1, MATH_COMPLEX);
-     if(pc == NULL) croak("Failed to allocate memory in _overload_log() function");
+     if(pc == NULL) croak("Failed to allocate memory in _overload_log function");
 
      obj_ref = newSV(0);
      obj = newSVrv(obj_ref, "Math::Complex_C::Long");
@@ -806,7 +806,7 @@ SV * _overload_sin(pTHX_ SV * a, SV * b, SV * third) {
      SV * obj_ref, * obj;
 
      New(42, pc, 1, MATH_COMPLEX);
-     if(pc == NULL) croak("Failed to allocate memory in _overload_sin() function");
+     if(pc == NULL) croak("Failed to allocate memory in _overload_sin function");
 
      obj_ref = newSV(0);
      obj = newSVrv(obj_ref, "Math::Complex_C::Long");
@@ -823,7 +823,7 @@ SV * _overload_cos(pTHX_ SV * a, SV * b, SV * third) {
      SV * obj_ref, * obj;
 
      New(42, pc, 1, MATH_COMPLEX);
-     if(pc == NULL) croak("Failed to allocate memory in _overload_cos() function");
+     if(pc == NULL) croak("Failed to allocate memory in _overload_cos function");
 
      obj_ref = newSV(0);
      obj = newSVrv(obj_ref, "Math::Complex_C::Long");
@@ -840,7 +840,7 @@ SV * _overload_atan2(pTHX_ SV * a, SV * b, SV * third) {
      SV * obj_ref, * obj;
 
      New(42, pc, 1, MATH_COMPLEX);
-     if(pc == NULL) croak("Failed to allocate memory in _overload_atan2() function");
+     if(pc == NULL) croak("Failed to allocate memory in _overload_atan2 function");
 
      obj_ref = newSV(0);
      obj = newSVrv(obj_ref, "Math::Complex_C::Long");
@@ -941,7 +941,7 @@ void ld_to_str(pTHX_ SV * ld) {
           t = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(ld))));
 
           Newx(rbuffer, 8 + _MATH_COMPLEX_C_LONG_DIGITS, char);
-          if(rbuffer == NULL) croak("Failed to allocate memory in ld_to_str()");
+          if(rbuffer == NULL) croak("Failed to allocate memory in ld_to_str");
 
           sprintf(rbuffer, "%.*Le", _MATH_COMPLEX_C_LONG_DIGITS - 1, __real__ t);
           ST(0) = sv_2mortal(newSVpv(rbuffer, 0));
@@ -969,7 +969,7 @@ void ld_to_strp(pTHX_ SV * ld, int prec) {
           t = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(ld))));
 
           Newx(rbuffer, 8 + prec, char);
-          if(rbuffer == NULL) croak("Failed to allocate memory (real) in ld_to_strp()");
+          if(rbuffer == NULL) croak("Failed to allocate memory (real) in ld_to_strp");
 
           sprintf(rbuffer, "%.*Le", prec - 1, __real__ t);
           ST(0) = sv_2mortal(newSVpv(rbuffer, 0));
@@ -1001,7 +1001,7 @@ SV * _get_xs_version(pTHX) {
 
 
 
-MODULE = Math::Complex_C::Long	PACKAGE = Math::Complex_C::Long
+MODULE = Math::Complex_C::Long  PACKAGE = Math::Complex_C::Long
 
 PROTOTYPES: DISABLE
 
@@ -1009,24 +1009,21 @@ PROTOTYPES: DISABLE
 void
 long_set_prec (x)
 	int	x
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	long_set_prec(aTHX_ x);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        long_set_prec(aTHX_ x);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
-SV *
+int
 long_get_prec ()
-CODE:
-  RETVAL = long_get_prec (aTHX);
-OUTPUT:  RETVAL
 
 
 SV *
@@ -1041,340 +1038,340 @@ assign_cl (rop, d1, d2)
 	SV *	rop
 	SV *	d1
 	SV *	d2
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	assign_cl(aTHX_ rop, d1, d2);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        assign_cl(aTHX_ rop, d1, d2);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 LD2cl (rop, d1, d2)
 	SV *	rop
 	SV *	d1
 	SV *	d2
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	LD2cl(aTHX_ rop, d1, d2);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        LD2cl(aTHX_ rop, d1, d2);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 mul_cl (rop, op1, op2)
 	SV *	rop
 	SV *	op1
 	SV *	op2
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	mul_cl(aTHX_ rop, op1, op2);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        mul_cl(aTHX_ rop, op1, op2);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 mul_c_nvl (rop, op1, op2)
 	SV *	rop
 	SV *	op1
 	SV *	op2
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	mul_c_nvl(aTHX_ rop, op1, op2);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        mul_c_nvl(aTHX_ rop, op1, op2);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 mul_c_ivl (rop, op1, op2)
 	SV *	rop
 	SV *	op1
 	SV *	op2
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	mul_c_ivl(aTHX_ rop, op1, op2);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        mul_c_ivl(aTHX_ rop, op1, op2);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 mul_c_uvl (rop, op1, op2)
 	SV *	rop
 	SV *	op1
 	SV *	op2
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	mul_c_uvl(aTHX_ rop, op1, op2);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        mul_c_uvl(aTHX_ rop, op1, op2);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 div_cl (rop, op1, op2)
 	SV *	rop
 	SV *	op1
 	SV *	op2
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	div_cl(aTHX_ rop, op1, op2);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        div_cl(aTHX_ rop, op1, op2);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 div_c_nvl (rop, op1, op2)
 	SV *	rop
 	SV *	op1
 	SV *	op2
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	div_c_nvl(aTHX_ rop, op1, op2);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        div_c_nvl(aTHX_ rop, op1, op2);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 div_c_ivl (rop, op1, op2)
 	SV *	rop
 	SV *	op1
 	SV *	op2
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	div_c_ivl(aTHX_ rop, op1, op2);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        div_c_ivl(aTHX_ rop, op1, op2);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 div_c_uvl (rop, op1, op2)
 	SV *	rop
 	SV *	op1
 	SV *	op2
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	div_c_uvl(aTHX_ rop, op1, op2);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        div_c_uvl(aTHX_ rop, op1, op2);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 add_cl (rop, op1, op2)
 	SV *	rop
 	SV *	op1
 	SV *	op2
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	add_cl(aTHX_ rop, op1, op2);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        add_cl(aTHX_ rop, op1, op2);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 add_c_nvl (rop, op1, op2)
 	SV *	rop
 	SV *	op1
 	SV *	op2
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	add_c_nvl(aTHX_ rop, op1, op2);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        add_c_nvl(aTHX_ rop, op1, op2);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 add_c_ivl (rop, op1, op2)
 	SV *	rop
 	SV *	op1
 	SV *	op2
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	add_c_ivl(aTHX_ rop, op1, op2);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        add_c_ivl(aTHX_ rop, op1, op2);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 add_c_uvl (rop, op1, op2)
 	SV *	rop
 	SV *	op1
 	SV *	op2
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	add_c_uvl(aTHX_ rop, op1, op2);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        add_c_uvl(aTHX_ rop, op1, op2);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 sub_cl (rop, op1, op2)
 	SV *	rop
 	SV *	op1
 	SV *	op2
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	sub_cl(aTHX_ rop, op1, op2);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        sub_cl(aTHX_ rop, op1, op2);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 sub_c_nvl (rop, op1, op2)
 	SV *	rop
 	SV *	op1
 	SV *	op2
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	sub_c_nvl(aTHX_ rop, op1, op2);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        sub_c_nvl(aTHX_ rop, op1, op2);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 sub_c_ivl (rop, op1, op2)
 	SV *	rop
 	SV *	op1
 	SV *	op2
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	sub_c_ivl(aTHX_ rop, op1, op2);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        sub_c_ivl(aTHX_ rop, op1, op2);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 sub_c_uvl (rop, op1, op2)
 	SV *	rop
 	SV *	op1
 	SV *	op2
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	sub_c_uvl(aTHX_ rop, op1, op2);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        sub_c_uvl(aTHX_ rop, op1, op2);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 DESTROY (rop)
 	SV *	rop
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	DESTROY(aTHX_ rop);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        DESTROY(aTHX_ rop);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 SV *
 real_cl (rop)
@@ -1394,35 +1391,35 @@ void
 real_cl2LD (rop, op)
 	SV *	rop
 	SV *	op
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	real_cl2LD(aTHX_ rop, op);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        real_cl2LD(aTHX_ rop, op);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 imag_cl2LD (rop, op)
 	SV *	rop
 	SV *	op
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	imag_cl2LD(aTHX_ rop, op);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        imag_cl2LD(aTHX_ rop, op);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 SV *
 arg_cl (rop)
@@ -1442,308 +1439,308 @@ void
 conj_cl (rop, op)
 	SV *	rop
 	SV *	op
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	conj_cl(aTHX_ rop, op);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        conj_cl(aTHX_ rop, op);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 acos_cl (rop, op)
 	SV *	rop
 	SV *	op
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	acos_cl(aTHX_ rop, op);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        acos_cl(aTHX_ rop, op);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 asin_cl (rop, op)
 	SV *	rop
 	SV *	op
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	asin_cl(aTHX_ rop, op);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        asin_cl(aTHX_ rop, op);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 atan_cl (rop, op)
 	SV *	rop
 	SV *	op
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	atan_cl(aTHX_ rop, op);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        atan_cl(aTHX_ rop, op);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 cos_cl (rop, op)
 	SV *	rop
 	SV *	op
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	cos_cl(aTHX_ rop, op);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        cos_cl(aTHX_ rop, op);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 sin_cl (rop, op)
 	SV *	rop
 	SV *	op
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	sin_cl(aTHX_ rop, op);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        sin_cl(aTHX_ rop, op);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 tan_cl (rop, op)
 	SV *	rop
 	SV *	op
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	tan_cl(aTHX_ rop, op);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        tan_cl(aTHX_ rop, op);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 acosh_cl (rop, op)
 	SV *	rop
 	SV *	op
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	acosh_cl(aTHX_ rop, op);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        acosh_cl(aTHX_ rop, op);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 asinh_cl (rop, op)
 	SV *	rop
 	SV *	op
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	asinh_cl(aTHX_ rop, op);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        asinh_cl(aTHX_ rop, op);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 atanh_cl (rop, op)
 	SV *	rop
 	SV *	op
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	atanh_cl(aTHX_ rop, op);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        atanh_cl(aTHX_ rop, op);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 cosh_cl (rop, op)
 	SV *	rop
 	SV *	op
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	cosh_cl(aTHX_ rop, op);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        cosh_cl(aTHX_ rop, op);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 sinh_cl (rop, op)
 	SV *	rop
 	SV *	op
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	sinh_cl(aTHX_ rop, op);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        sinh_cl(aTHX_ rop, op);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 tanh_cl (rop, op)
 	SV *	rop
 	SV *	op
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	tanh_cl(aTHX_ rop, op);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        tanh_cl(aTHX_ rop, op);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 exp_cl (rop, op)
 	SV *	rop
 	SV *	op
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	exp_cl(aTHX_ rop, op);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        exp_cl(aTHX_ rop, op);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 log_cl (rop, op)
 	SV *	rop
 	SV *	op
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	log_cl(aTHX_ rop, op);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        log_cl(aTHX_ rop, op);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 sqrt_cl (rop, op)
 	SV *	rop
 	SV *	op
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	sqrt_cl(aTHX_ rop, op);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        sqrt_cl(aTHX_ rop, op);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 proj_cl (rop, op)
 	SV *	rop
 	SV *	op
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	proj_cl(aTHX_ rop, op);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        proj_cl(aTHX_ rop, op);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 pow_cl (rop, op, exp)
 	SV *	rop
 	SV *	op
 	SV *	exp
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	pow_cl(aTHX_ rop, op, exp);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        pow_cl(aTHX_ rop, op, exp);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 SV *
 _overload_true (rop, second, third)
@@ -2065,35 +2062,35 @@ OUTPUT:  RETVAL
 void
 ld_to_str (ld)
 	SV *	ld
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	ld_to_str(aTHX_ ld);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        ld_to_str(aTHX_ ld);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 void
 ld_to_strp (ld, prec)
 	SV *	ld
 	int	prec
-	PREINIT:
-	I32* temp;
-	PPCODE:
-	temp = PL_markstack_ptr++;
-	ld_to_strp(aTHX_ ld, prec);
-	if (PL_markstack_ptr != temp) {
+        PREINIT:
+        I32* temp;
+        PPCODE:
+        temp = PL_markstack_ptr++;
+        ld_to_strp(aTHX_ ld, prec);
+        if (PL_markstack_ptr != temp) {
           /* truly void, because dXSARGS not invoked */
-	  PL_markstack_ptr = temp;
-	  XSRETURN_EMPTY; /* return empty stack */
+          PL_markstack_ptr = temp;
+          XSRETURN_EMPTY; /* return empty stack */
         }
         /* must have used dXSARGS; list context implied */
-	return; /* assume stack size is correct */
+        return; /* assume stack size is correct */
 
 SV *
 _LDBL_DIG ()
