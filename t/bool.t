@@ -1,12 +1,12 @@
 use warnings;
 use strict;
 
-use Math::Complex_C qw(:all);
+use Math::Complex_C::L qw(:all);
 
 print "1..14\n";
 
-my $true = Math::Complex_C->new(1,0);
-my $false = Math::Complex_C->new();
+my $true = MCL(1,0);
+my $false = MCL();
 
 if($true) {print "ok 1\n"}
 else {
@@ -44,16 +44,16 @@ else {
   print "not ok 6\n";
 }
 
-my $nan = get_nan();
+my $nan = get_nanl();
 
-if(is_nan($nan)) { print "ok 7\n"}
+if(is_nanl($nan)) { print "ok 7\n"}
 else {
   warn "\$nan: $nan\n";
   print "not ok 7\n";
 }
 
-assign_c($false, $nan, $nan);
-assign_c($true, 1, $nan);
+assign_cl($false, $nan, $nan);
+assign_cl($true, 1, $nan);
 
 if($true) {print "ok 8\n"}
 else {
@@ -97,3 +97,4 @@ else {
   warn "\$inf: $inf\n";
   print "not ok 14\n";
 }
+
