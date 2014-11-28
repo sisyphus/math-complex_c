@@ -1,5 +1,9 @@
 0.11
+ - Remove is_neg_zero() and get_neg_zero(). (Sick of the bugs with this.)
+ - Rename Math::Complex_C::Long to Math::Complex_C::L and move to a separate distro.
  - Add metadata to Makefile.PL
+ - Remove negative NaN support. Makes no sense to provide a sign to something that
+   is not a number ... next thing they'll be wanting is red nans and green nans ....
 
 0.09
  - Define __USE_MINGW_ANSI_STDIO in Complex_C.xs for the MinGW compiler so that
