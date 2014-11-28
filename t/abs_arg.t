@@ -1,15 +1,15 @@
 use warnings;
 use strict;
-use Math::Complex_C::L qw(:all);
+use Math::Complex_C qw(:all);
 
-my $op = MCL(5, 4.5);
+my $op = MCD(5, 4.5);
 
 my $eps = 1e-12;
 
-print "1..15\n";
+print "1..7\n";
 
-my $rop = arg_cl($op);
-my $irop = Math::Complex_C::L::_itsa($rop);
+my $rop = arg_c($op);
+my $irop = Math::Complex_C::_itsa($rop);
 
 if($irop == 3) {print "ok 1\n"}
 else {
@@ -23,9 +23,9 @@ else {
   print "not ok 2\n";
 }
 
-$rop = abs_cl($op);
+$rop = abs_c($op);
 my $check = $rop;
-$irop = Math::Complex_C::L::_itsa($rop);
+$irop = Math::Complex_C::_itsa($rop);
 
 if($irop == 3) {print "ok 3\n"} # NV
 else {
@@ -40,7 +40,7 @@ else {
 }
 
 $rop = abs($op);
-$irop = Math::Complex_C::L::_itsa($rop);
+$irop = Math::Complex_C::_itsa($rop);
 
 if($irop == 3) {print "ok 5\n"} # NV
 else {
@@ -61,78 +61,8 @@ else {
 }
 
 ##############################
-
-$rop = arg_cl2str($op);
-$irop = Math::Complex_C::L::_itsa($rop);
-
-if($irop == 4) {print "ok 8\n"} # PV
-else {
-  warn "\nExpected 4\nGot $irop\n";
-  print "not ok 8\n";
-}
-
-if(approx($rop, 7.3281510178650655e-1, $eps)) {print "ok 9\n"}
-else {
-  warn "\nExpected approx 7.3281510178650655e-1\nGot $rop\n";
-  print "not ok 9\n";
-}
-
-$rop = abs_cl2str($op);
-$irop = Math::Complex_C::L::_itsa($rop);
-
-if($irop == 4) {print "ok 10\n"} # PV
-else {
-  warn "\nExpected 4\nGot $irop\n";
-  print "not ok 10\n";
-}
-
-if(approx($rop, 6.7268120235368549, $eps)) {print "ok 11\n"}
-else {
-  warn "\nExpected approx 6.7268120235368549\nGot $rop\n";
-  print "not ok 11\n";
-}
-
 ##############################
 ##############################
-
-eval {require Math::LongDouble;};
-
-if(!$@) {
-  $rop = arg_cl2LD($op);
-  $irop = Math::Complex_C::L::_itsa($rop);
-
-  if($irop == 96) {print "ok 12\n"} # Math::LongDouble object
-  else {
-    warn "\nExpected 96\nGot $irop\n";
-    print "not ok 12\n";
-  }
-
-  if(approx($rop, 7.3281510178650655e-1, $eps)) {print "ok 13\n"}
-  else {
-    warn "\nExpected approx 7.3281510178650655e-1\nGot $rop\n";
-    print "not ok 13\n";
-  }
-
-  $rop = abs_cl2LD($op);
-  $irop = Math::Complex_C::L::_itsa($rop);
-
-  if($irop == 96) {print "ok 14\n"} # Math::LongDouble object
-  else {
-    warn "\nExpected 96\nGot $irop\n";
-    print "not ok 14\n";
-  }
-
-  if(approx($rop, 6.7268120235368549, $eps)) {print "ok 15\n"}
-  else {
-    warn "\nExpected approx 6.7268120235368549\nGot $rop\n";
-    print "not ok 15\n";
-  }
-}
-else {
-  warn "\nSkipping tests 12-15 - Math::LongDouble not loaded\n\$\@: $@\n";
-  for(12..15) {print "ok $_\n"}
-}
-
 ##############################
 ##############################
 
