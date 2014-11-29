@@ -2,7 +2,7 @@ use strict;
 use warnings;
 use Math::Complex_C qw(:all);
 
-print "1..5\n";
+print "1..6\n";
 
 my $c1 = MCD(2.1,-5.1);
 
@@ -55,5 +55,14 @@ if($str1 eq $str2 && $str1 eq '-inf -inf') {print "ok 5\n"}
 else {
   warn "\nExpected '-inf -inf'\nGot '$str1' and '$str2'\n";
   print "not ok 5\n";
+}
+
+$check = MCD('-3.1', '119e-4');
+$str1 = d_to_str($check);
+my $check2 = str_to_d($str1);
+if($check == $check2) {print "ok 6\n"}
+else {
+  warn "\n$check != $check2\n";
+  print "not ok 6\n";
 }
 
