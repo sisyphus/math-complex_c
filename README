@@ -9,51 +9,18 @@ Build in the usual way:
  make install
 
 
-==================================
-utilisation of long double support
-==================================
+=====================
+Which Math::Complex_C
+=====================
 
-In t/type.t we have:
+There are three Math::Complex_C modules, each in it's own separate distro:
 
-#############################
-my $s_nv = Math::Complex_C::_nvsize();
-my $s_iv = Math::Complex_C::_ivsize();
-my $s_d = Math::Complex_C::_doublesize();
-my $s_ld = Math::Complex_C::_longdoublesize();
-my $s_d_C = Math::Complex_C::_double_Complexsize();
-my $s_ld_C = Math::Complex_C::_longdouble_Complexsize();
+1) Math::Complex_C
+  Accesses the C compiler's 'double' precision (usually 53-bit) complex arithemtic operations;
 
-warn "  Configuration details:\n",
-     "   NV size is $s_nv\n",
-     "   IV size is $s_iv\n",
-     "   double size is $s_d\n",
-     "   long double size is $s_ld\n",
-     "   double _Complex size is $s_d_C\n",
-     "   long double _Complex size is $s_ld_C\n";
-#############################
+2) Math::Complex_C::L
+  Accesses the C compiler's 'long double' precision (usually 64-bit) complex arithemtic operations;
 
-If double size is the same as long double size, then there's no point in creating Math::Complex_C::Long
-objects. There's no reason that you can't do that - it's just that there's nothing to be gained.
-
-If NV precision is less than long double precision, then you'll lose precision when perl retrieves the values
-of a Math::Complex_C::Long object. (The long double is truncated to a double.)
-And, in this case, you cannot easily assign a value that has the full long double precision to a
-Math::Complex_C::Long object.
-It's on my 'TODO' list to remedy this shortcoming.
-
-Some of the Math::Complex_C functions optionally take an IV/UV/NV argument - and then convert any UV/IV to
-an NV before performing any operations. If IV precision is greater than NV precision, then be aware that the
-IV/UV->NV conversion will result in a loss of precision.
-(Functions that make this conversion are assign_c, assign_cl, Math::Complex_C::new, Math::Complex_C::Long::new,
-pow_c, pow_cl, and the overloaded '**' and '**=' operations.)
-It's on my 'TODO' list to have the program die when such a conversion results in loss of precision. (Or should
-it simply warn ?)
-
-These are traps for the unwary - best to give them some consideration.
-
-If IV precision is less than NV precision, && NV size is the same as long double size - then you've nothing to
-worry about. Just use Math::Complex_C::Long objects (for greater precision), or Math:Complex_C objects if you
-don't want the extra precision.
-
-Comments welcome.
+3) Math::Complex_C::Q
+  Accesses the C compiler's '__float128' precision (usually 113-bit) complex arithemtic operations;
 
