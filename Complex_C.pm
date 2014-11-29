@@ -199,7 +199,18 @@ Math::Complex_C - perl interface to C's double precision complex operations.
    of usage.
 
    This module is written largely for the use of perl builds whose nvtype is
-   long double. (Run "perl -V:nvtype" to see what your perl's NV type is.)
+   'double'. Run "perl -V:nvtype" to see what your perl's NV type is. If your
+   nvtype is 'long double' consider using Math::Complex_C::L instead, and if
+   your nvtype is '__float128' consider using Math::Complex_C::Q.
+   Irrespective of the nvtype, you can still use this module - it's just
+   that there are a number of functions returning 'double' - which, for 'long
+   double' and '__float128' builds do not utilise the full precision that the
+   'long double' or '__float128' NV provides.
+   OTOH, you *can* use Math::Complex_C::L and/or Math::Complex_C::Q (making
+   full use of the extra precision their operations provide) even if your
+   nvtype is double - so long as your compiler supports the building of those
+   modules. See the "Which Math::Complex_C" section of the README that ships
+   with this module's source for a more detailed explanation.
 
 =head1 FUNCTIONS
 
@@ -247,7 +258,7 @@ Math::Complex_C - perl interface to C's double precision complex operations.
     a signed integer value (IV), an unsigned integer value (UV), a floating point
     value (NV), a numeric string (PV). The UV, IV, NV and PV values are real only -
     ie no imaginary component. The PV will be set to a long double value using C's
-    strtold() function. The UV, IV and NV values will be cast to long double
+    strtod() function. The UV, IV and NV values will be cast to long double
     values.
 
    add_c   ($rop, $op1, $op2);
