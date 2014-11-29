@@ -1,4 +1,4 @@
-This module wraps the complex arithmetic functions defined in complex.h.
+This module wraps the double complex arithmetic functions defined in complex.h.
 Consequently, you need a C compiler that provides complex.h.
 
 Build in the usual way:
@@ -98,8 +98,31 @@ The capability for this is provided.
 Similarly if you're using Math::Complex_C::L on a perl whose NV is 'double' - grab/assign
 the values as either strings or Math::LongDouble objects.
 
-If your NV precision matches the precision of the complex components then assigning/retrieving
-values as NVs is fine.
+For example, again with NV type of double:
+
+##############################
+
+use warnings;
+use Math::Complex_C::L qw(:all);
+use Math::LongDouble qw(:all);
+
+$obj = sqrt(MCL('-2.123', 0));
+# $obj = sqrt(MCL(Math::LongDouble->new('-2.123'), 0)); # same result
+$nv = imag_cl($obj);       # returns NV		
+$str = imag_cl2str($obj);  # returns string
+$ld_obj = imag_cl2LD($obj);# returns Math::LongDouble object
+
+print "$nv\n$str\n$ld_obj\n";
+
+##############################
+
+This outputs:
+1.45705181788432
+1.45705181788431945e+000
+1.45705181788431945e+000
+
+If your NV precision matches the precision of the complex (real and imaginary) parts then
+assigning/retrieving values as NVs is fine.
 
 If your NV precision is greater than the precision of the complex components then you're simply
 wasting the extra precision your NV has - which is something you are entirely free to do.
