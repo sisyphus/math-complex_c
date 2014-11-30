@@ -71,7 +71,7 @@ print "$nv\n$str\n";
 This doesn't change the value of $nv, but $str changes to:
 1.45705181788431944566113502812563e+00
 
-which is now (hopefully) the correct 34-digit approximation of sqrt(2.123).
+which is now (hopefully) the correct 33-digit approximation of sqrt(2.123).
 
 Another alternative is to assign to a Math::Float128 object instead of to a string:
 
