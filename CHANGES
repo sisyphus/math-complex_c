@@ -1,3 +1,8 @@
+0.12
+ - Rewrite tests 4 and 5 in t/overload_string.t s that they don't register a fail
+   if the libc bug that causes 'nan nan' to be returned (instead of the correct
+   'inf inf') is present.
+
 0.11
  - Remove is_neg_zero() and get_neg_zero(). (Sick of the bugs with this.)
  - Rename Math::Complex_C::Long to Math::Complex_C::L and move to a separate distro.
