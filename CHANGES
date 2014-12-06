@@ -1,4 +1,7 @@
 0.12
+ - Try to detect if references to "cpow" will not be resolved - and abort the build
+   if this problem is found to exist. (This enables us to avoid some FAIL reports
+   from cpan-testers.)
  - Rewrite tests 4 and 5 in t/overload_string.t s that they don't register a fail
    if the libc bug that causes 'nan nan' to be returned (instead of the correct
    'inf inf') is present.
