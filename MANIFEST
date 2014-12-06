@@ -4,6 +4,7 @@ Complex_C.xs
 Makefile.PL
 MANIFEST
 README
+try.in
 t/01load.t
 t/abs_arg.t
 t/arith.t
