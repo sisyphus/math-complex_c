@@ -1,3 +1,5 @@
+0.13
+
 0.12
  - Try to detect if references to "cpow" will not be resolved - and abort the build
    if this problem is found to exist. (This enables us to avoid some FAIL reports
