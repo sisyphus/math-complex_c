@@ -212,6 +212,15 @@ Math::Complex_C - perl interface to C's double precision complex operations.
    modules. See the "Which Math::Complex_C" section of the README that ships
    with this module's source for a more detailed explanation.
 
+   A number of the functions below accept string arguments. These arguments
+   will be tested by the perl API function looks_like_number() for the
+   presence of non-numeric characters. If any such non-numeric characters
+   are detected, then the global non-numeric flag (which is initially set to
+   0) will be incremented. You can query the value this global flag holds by
+   running Math::Complex_C::nnumflag() and you can manually alter the value of
+   the global using Math::Complex_C::set_nnum and Math::Complex_C::clear_nnum.
+   These functions are documented below.
+
 =head1 FUNCTIONS
 
    $rop = Math::Complex_C->new($re, $im);
@@ -411,9 +420,10 @@ Math::Complex_C - perl interface to C's double precision complex operations.
 
     Overloaded arithmetic operations are provided the following types:
      IV, UV, NV, PV, Math::Complex_C object.
-    The IV, UV, NV and PV values are real only (ie no imaginary component). The
-    PV values will be converted to double values using C's strtod() function.
-    The IV, UV and NV values will be cast to double precision values.
+    The IV, UV, NV and PV values are real only (ie no imaginary
+    component). The PV values will be converted to double values
+    using C's strtod() function. The IV, UV and NV values will be
+    cast to double precision values.
 
     Note: For the purposes of the overloaded 'not', '!' and 'bool'
     operators, a "false" Math::Complex_C object is one with real
@@ -422,12 +432,29 @@ Math::Complex_C - perl interface to C's double precision complex operations.
     (A "true" Math::Complex_C object is, of course, simply one
     that is not "false".)
 
+=head1 OTHER FUNCTIONS
+
+    $iv = Math::Complex_C::nnumflag(); # not exported
+     Returns the value of the non-numeric flag. This flag is
+     initialized to zero, but incemented by 1 whenever a function
+     is handed a string containing non-numeric characters. The
+     value of the flag therefore tells us how many times functions
+     have been handed such a string. The flag can be reset to 0 by
+     running clear_nnum().
+
+    Math::Complex_C::set_nnum($iv); # not exported
+     Resets the global non-numeric flag to the value specified by
+     $iv.
+
+    Math::Complex_C::clear_nnum(); # not exported
+     Resets the global non-numeric flag to 0.(Essentially the same
+     as running set_nnum(0).)
 
 =head1 LICENSE
 
    This module is free software; you may redistribute it and/or modify it under
    the same terms as Perl itself.
-   Copyright 2014, Sisyphus.
+   Copyright 2014-15, Sisyphus.
 
 =head1 AUTHOR
 
