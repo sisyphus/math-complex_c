@@ -37,7 +37,7 @@ $rop *= '-2 .5';
 
 if($rop == Math::Complex_C->new(-4, -13) && nnf() == 1) {print "ok 4\n"}
 else {
-  warn "\nExpected (4, 13), got $rop\n";
+  warn "\nExpected (-4, -13), got $rop\n";
   warn "nnumflag() expected 1, got ", nnf(), "\n";
   print "not ok 4\n";
 }
