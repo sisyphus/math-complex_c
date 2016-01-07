@@ -27,11 +27,7 @@
 #  define Newxz(v,n,t) Newz(0,v,n,t)
 #endif
 
-#ifdef DBL_DIG
-int _MATH_COMPLEX_C_DIGITS = DBL_DIG;
-#else
-int _MATH_COMPLEX_C_DIGITS = 15;
-#endif
+int _MATH_COMPLEX_C_DIGITS = 17;
 
 #define MATH_COMPLEX double _Complex
 
