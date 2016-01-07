@@ -378,14 +378,13 @@ Math::Complex_C - perl interface to C's double precision complex operations.
 =head1 OUTPUT FUNCTIONS
 
    Default precision for output of Math::Complex_C objects is whatever is
-   specified by the macro DBL_DIG in float.h (usually 15). If DBL_DIG
-   is not defined then default precision is set to 15 decimal digits.
+   17 decimal digits.
 
    This default can be altered using d_set_prec (see below).
 
    d_set_prec($si);
    $si = d_get_prec();
-    Set/get the precision of output values
+    Set/get the precision (decimal digits) of output values
 
    $str = d_to_str($op);
     Return a string of the form "real imag".
@@ -454,7 +453,7 @@ Math::Complex_C - perl interface to C's double precision complex operations.
 
    This module is free software; you may redistribute it and/or modify it under
    the same terms as Perl itself.
-   Copyright 2014-15, Sisyphus.
+   Copyright 2014, 2016 Sisyphus.
 
 =head1 AUTHOR
 
