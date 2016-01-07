@@ -1,6 +1,7 @@
 0.13
  - Add nnumflag(), set_nnum() and clear_nnum() functions. Also start using the perl
    API function looks_like_number() to detect non-numeric strings.
+ - Change default ouptput precision from 15 to 17 decimal digits.
 
 0.12
  - Try to detect if references to "cpow" will not be resolved - and abort the build
