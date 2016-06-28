@@ -1,4 +1,5 @@
 0.14
+ - Replace SvIV/SvUV/SvNV with SvIVX/SvUVx/SvNVX where appropriate.
 
 0.13
  - Add nnumflag(), set_nnum() and clear_nnum() functions. Also start using the perl
