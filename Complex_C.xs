@@ -94,15 +94,15 @@ void assign_c(pTHX_ SV * rop, SV * d1, SV * d2) {
      double _d1, _d2;
 
      if(SvUOK(d1)) {
-       _d1 = (double)SvUV(d1);
+       _d1 = (double)SvUVX(d1);
      }
      else {
        if(SvIOK(d1)) {
-         _d1 = (double)SvIV(d1);
+         _d1 = (double)SvIVX(d1);
        }
        else {
          if(SvNOK(d1)) {
-           _d1 = (double)SvNV(d1);
+           _d1 = (double)SvNVX(d1);
          }
          else {
            if(SvPOK(d1)) {
@@ -117,15 +117,15 @@ void assign_c(pTHX_ SV * rop, SV * d1, SV * d2) {
      }
 
      if(SvUOK(d2)) {
-       _d2 = (double)SvUV(d2);
+       _d2 = (double)SvUVX(d2);
      }
      else {
        if(SvIOK(d2)) {
-         _d2 = (double)SvIV(d2);
+         _d2 = (double)SvIVX(d2);
        }
        else {
          if(SvNOK(d2)) {
-           _d2 = (double)SvNV(d2);
+           _d2 = (double)SvNVX(d2);
          }
          else {
            if(SvPOK(d2)) {
@@ -147,15 +147,15 @@ void set_real_c(pTHX_ SV * rop, SV * d1) {
      double _d1;
 
      if(SvUOK(d1)) {
-       _d1 = (double)SvUV(d1);
+       _d1 = (double)SvUVX(d1);
      }
      else {
        if(SvIOK(d1)) {
-         _d1 = (double)SvIV(d1);
+         _d1 = (double)SvIVX(d1);
        }
        else {
          if(SvNOK(d1)) {
-           _d1 = (double)SvNV(d1);
+           _d1 = (double)SvNVX(d1);
          }
          else {
            if(SvPOK(d1)) {
@@ -176,15 +176,15 @@ void set_imag_c(pTHX_ SV * rop, SV * d2) {
      double _d2;
 
      if(SvUOK(d2)) {
-       _d2 = (double)SvUV(d2);
+       _d2 = (double)SvUVX(d2);
      }
      else {
        if(SvIOK(d2)) {
-         _d2 = (double)SvIV(d2);
+         _d2 = (double)SvIVX(d2);
        }
        else {
          if(SvNOK(d2)) {
-           _d2 = (double)SvNV(d2);
+           _d2 = (double)SvNVX(d2);
          }
          else {
            if(SvPOK(d2)) {
@@ -413,17 +413,17 @@ SV * _overload_not(pTHX_ SV * rop, SV * second, SV * third) {
 
 SV * _overload_equiv(pTHX_ SV * a, SV * b, SV * third) {
       if(SvUOK(b)) {
-       if((double)SvUV(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) &&
+       if((double)SvUVX(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) &&
           0.0              == cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))))) return newSVuv(1);
        return newSVuv(0);
      }
      if(SvIOK(b)) {
-       if((double)SvIV(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) &&
+       if((double)SvIVX(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) &&
           0.0              == cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))))) return newSVuv(1);
        return newSVuv(0);
      }
-     if((double)SvNOK(b)) {
-       if(SvNV(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) &&
+     if(SvNOK(b)) {
+       if((double)SvNVX(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) &&
           0.0    == cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))))) return newSVuv(1);
        return newSVuv(0);
      }
@@ -450,17 +450,17 @@ SV * _overload_equiv(pTHX_ SV * a, SV * b, SV * third) {
 
 SV * _overload_not_equiv(pTHX_ SV * a, SV * b, SV * third) {
      if(SvUOK(b)) {
-       if((double)SvUV(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) &&
+       if((double)SvUVX(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) &&
           0.0              == cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))))) return newSVuv(0);
        return newSVuv(1);
      }
      if(SvIOK(b)) {
-       if((double)SvIV(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) &&
+       if((double)SvIVX(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) &&
           0.0              == cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))))) return newSVuv(0);
        return newSVuv(1);
      }
-     if((double)SvNOK(b)) {
-       if(SvNV(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) &&
+     if(SvNOK(b)) {
+       if((double)SvNVX(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) &&
           0.0    == cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))))) return newSVuv(0);
        return newSVuv(1);
      }
@@ -497,19 +497,19 @@ SV * _overload_pow(pTHX_ SV * a, SV * b, SV * third) {
      sv_setiv(obj, INT2PTR(IV,pc));
      SvREADONLY_on(obj);
      if(SvUOK(b)) {
-       __real__ t = (double)SvUV(b);
+       __real__ t = (double)SvUVX(b);
        __imag__ t = 0.0;
        *pc = cpow(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))), t);
        return obj_ref;
      }
      if(SvIOK(b)) {
-       __real__ t = (double)SvIV(b);
+       __real__ t = (double)SvIVX(b);
        __imag__ t = 0.0;
        *pc = cpow(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))), t);
        return obj_ref;
      }
      if(SvNOK(b)) {
-       __real__ t = (double)SvNV(b);
+       __real__ t = (double)SvNVX(b);
        __imag__ t = 0.0;
        *pc = cpow(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))), t);
        return obj_ref;
@@ -545,17 +545,17 @@ SV * _overload_mul(pTHX_ SV * a, SV * b, SV * third) {
      SvREADONLY_on(obj);
 
      if(SvUOK(b)) {
-       *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) * (double)SvUV(b);
+       *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) * (double)SvUVX(b);
        return obj_ref;
      }
 
      if(SvIOK(b)) {
-       *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) * (double)SvIV(b);
+       *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) * (double)SvIVX(b);
        return obj_ref;
      }
 
      if(SvNOK(b)) {
-       *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) * (double)SvNV(b);
+       *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) * (double)SvNVX(b);
        return obj_ref;
      }
      if(SvPOK(b)) {
@@ -588,17 +588,17 @@ SV * _overload_add(pTHX_ SV * a, SV * b, SV * third) {
      SvREADONLY_on(obj);
 
      if(SvUOK(b)) {
-       *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) + (double)SvUV(b);
+       *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) + (double)SvUVX(b);
        return obj_ref;
      }
 
      if(SvIOK(b)) {
-       *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) + (double)SvIV(b);
+       *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) + (double)SvIVX(b);
        return obj_ref;
      }
 
      if(SvNOK(b)) {
-       *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) + (double)SvNV(b);
+       *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) + (double)SvNVX(b);
        return obj_ref;
      }
      if(SvPOK(b)) {
@@ -631,20 +631,20 @@ SV * _overload_div(pTHX_ SV * a, SV * b, SV * third) {
      SvREADONLY_on(obj);
 
      if(SvUOK(b)) {
-       if(third == &PL_sv_yes) *pc = (double)SvUV(b) / *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
-       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) / (double)SvUV(b);
+       if(third == &PL_sv_yes) *pc = (double)SvUVX(b) / *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
+       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) / (double)SvUVX(b);
        return obj_ref;
      }
 
      if(SvIOK(b)) {
-       if(third == &PL_sv_yes) *pc = (double)SvIV(b) / *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
-       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) / (double)SvIV(b);
+       if(third == &PL_sv_yes) *pc = (double)SvIVX(b) / *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
+       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) / (double)SvIVX(b);
        return obj_ref;
      }
 
      if(SvNOK(b)) {
-       if(third == &PL_sv_yes) *pc = (double)SvNV(b) / *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
-       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) / (double)SvNV(b);
+       if(third == &PL_sv_yes) *pc = (double)SvNVX(b) / *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
+       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) / (double)SvNVX(b);
        return obj_ref;
      }
      if(SvPOK(b)) {
@@ -678,20 +678,20 @@ SV * _overload_sub(pTHX_ SV * a, SV * b, SV * third) {
      SvREADONLY_on(obj);
 
      if(SvUOK(b)) {
-       if(third == &PL_sv_yes) *pc = (double)SvUV(b) - *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
-       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) - (double)SvUV(b);
+       if(third == &PL_sv_yes) *pc = (double)SvUVX(b) - *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
+       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) - (double)SvUVX(b);
        return obj_ref;
      }
 
      if(SvIOK(b)) {
-       if(third == &PL_sv_yes) *pc = (double)SvIV(b) - *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
-       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) - (double)SvIV(b);
+       if(third == &PL_sv_yes) *pc = (double)SvIVX(b) - *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
+       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) - (double)SvIVX(b);
        return obj_ref;
      }
 
      if(SvNOK(b)) {
-       if(third == &PL_sv_yes) *pc = (double)SvNV(b) - *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
-       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) - (double)SvNV(b);
+       if(third == &PL_sv_yes) *pc = (double)SvNVX(b) - *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
+       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) - (double)SvNVX(b);
        return obj_ref;
      }
      if(SvPOK(b)) {
@@ -733,19 +733,19 @@ SV * _overload_pow_eq(pTHX_ SV * a, SV * b, SV * third) {
      SvREFCNT_inc(a);
 
      if(SvUOK(b)) {
-       __real__ t = (double)SvUV(b);
+       __real__ t = (double)SvUVX(b);
        __imag__ t = 0.0;
        *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) = cpow(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))), t);
        return a;
      }
      if(SvIOK(b)) {
-       __real__ t = (double)SvIV(b);
+       __real__ t = (double)SvIVX(b);
        __imag__ t = 0.0;
        *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) = cpow(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))), t);
        return a;
      }
      if(SvNOK(b)) {
-       __real__ t = (double)SvNV(b);
+       __real__ t = (double)SvNVX(b);
        __imag__ t = 0.0;
        *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) = cpow(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))), t);
        return a;
@@ -773,17 +773,17 @@ SV * _overload_mul_eq(pTHX_ SV * a, SV * b, SV * third) {
      SvREFCNT_inc(a);
 
      if(SvUOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) *= (double)SvUV(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) *= (double)SvUVX(b);
        return a;
      }
 
      if(SvIOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) *= (double)SvIV(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) *= (double)SvIVX(b);
        return a;
      }
 
      if(SvNOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) *= (double)SvNV(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) *= (double)SvNVX(b);
        return a;
      }
 
@@ -809,17 +809,17 @@ SV * _overload_add_eq(pTHX_ SV * a, SV * b, SV * third) {
      SvREFCNT_inc(a);
 
      if(SvUOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) += (double)SvUV(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) += (double)SvUVX(b);
        return a;
      }
 
      if(SvIOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) += (double)SvIV(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) += (double)SvIVX(b);
        return a;
      }
 
      if(SvNOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) += (double)SvNV(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) += (double)SvNVX(b);
        return a;
      }
 
@@ -845,17 +845,17 @@ SV * _overload_div_eq(pTHX_ SV * a, SV * b, SV * third) {
      SvREFCNT_inc(a);
 
      if(SvUOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) /= (double)SvUV(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) /= (double)SvUVX(b);
        return a;
      }
 
      if(SvIOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) /= (double)SvIV(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) /= (double)SvIVX(b);
        return a;
      }
 
      if(SvNOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) /= (double)SvNV(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) /= (double)SvNVX(b);
        return a;
      }
 
@@ -881,17 +881,17 @@ SV * _overload_sub_eq(pTHX_ SV * a, SV * b, SV * third) {
      SvREFCNT_inc(a);
 
      if(SvUOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) -= (double)SvUV(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) -= (double)SvUVX(b);
        return a;
      }
 
      if(SvIOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) -= (double)SvIV(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) -= (double)SvIVX(b);
        return a;
      }
 
      if(SvNOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) -= (double)SvNV(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) -= (double)SvNVX(b);
        return a;
      }
 
@@ -1043,10 +1043,11 @@ SV * is_nan(pTHX_ SV * a) {
 }
 
 SV * is_inf(pTHX_ SV * a) {
-     if(SvNV(a) == 0) return newSVuv(0);
-     if(SvNV(a) != SvNV(a)) return newSVuv(0);
-     if(SvNV(a) / SvNV(a) == SvNV(a) / SvNV(a)) return newSVuv(0);
-     if(SvNV(a) < 0) return newSViv(-1);
+     double t = (double)SvNV(a);
+     if(t == 0) return newSVuv(0);
+     if(t != t) return newSVuv(0);
+     if(t / t == t / t) return newSVuv(0);
+     if(t < 0) return newSViv(-1);
      return newSViv(1);
 }
 
