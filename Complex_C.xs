@@ -139,8 +139,8 @@ void assign_c(pTHX_ SV * rop, SV * d1, SV * d2) {
        }
      }
 
-     __real__ *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = _d1;
-     __imag__ *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = _d2;
+     __real__ *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = _d1;
+     __imag__ *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = _d2;
 }
 
 void set_real_c(pTHX_ SV * rop, SV * d1) {
@@ -169,7 +169,7 @@ void set_real_c(pTHX_ SV * rop, SV * d1) {
        }
      }
 
-     __real__ *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = _d1;
+     __real__ *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = _d1;
 }
 
 void set_imag_c(pTHX_ SV * rop, SV * d2) {
@@ -198,248 +198,248 @@ void set_imag_c(pTHX_ SV * rop, SV * d2) {
        }
      }
 
-     __imag__ *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = _d2;
+     __imag__ *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = _d2;
 }
 
 
 void mul_c(pTHX_ SV * rop, SV * op1, SV * op2) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op1)))) *
-                                                   *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op2))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op1)))) *
+                                                   *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op2))));
 }
 
 void mul_c_nv(pTHX_ SV * rop, SV * op1, SV * op2) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op1)))) *
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op1)))) *
                                                    (double)SvNV(op2);
 }
 
 void mul_c_iv(pTHX_ SV * rop, SV * op1, SV * op2) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op1)))) *
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op1)))) *
                                                    (double)SvIV(op2);
 }
 
 void mul_c_uv(pTHX_ SV * rop, SV * op1, SV * op2) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op1)))) *
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op1)))) *
                                                    (double)SvUV(op2);
 }
 
 void mul_c_pv(pTHX_ SV * rop, SV * op1, SV * op2) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op1)))) *
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op1)))) *
                                                    strtod(SvPV_nolen(op2), NULL);
 }
 
 void div_c(pTHX_ SV * rop, SV * op1, SV * op2) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op1)))) /
-                                                   *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op2))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op1)))) /
+                                                   *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op2))));
 }
 
 void div_c_nv(pTHX_ SV * rop, SV * op1, SV * op2) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op1)))) /
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op1)))) /
                                                    (double)SvNV(op2);
 }
 
 void div_c_iv(pTHX_ SV * rop, SV * op1, SV * op2) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op1)))) /
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op1)))) /
                                                    (double)SvIV(op2);
 }
 
 void div_c_uv(pTHX_ SV * rop, SV * op1, SV * op2) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op1)))) /
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op1)))) /
                                                    (double)SvUV(op2);
 }
 
 void div_c_pv(pTHX_ SV * rop, SV * op1, SV * op2) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op1)))) /
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op1)))) /
                                                    strtod(SvPV_nolen(op2), NULL);
 }
 
 void add_c(pTHX_ SV * rop, SV * op1, SV * op2) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op1)))) +
-                                                   *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op2))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op1)))) +
+                                                   *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op2))));
 }
 
 void add_c_nv(pTHX_ SV * rop, SV * op1, SV * op2) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op1)))) +
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op1)))) +
                                                    (double)SvNV(op2);
 }
 
 void add_c_iv(pTHX_ SV * rop, SV * op1, SV * op2) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op1)))) +
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op1)))) +
                                                    (double)SvIV(op2);
 }
 
 void add_c_uv(pTHX_ SV * rop, SV * op1, SV * op2) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op1)))) +
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op1)))) +
                                                    (double)SvUV(op2);
 }
 
 void add_c_pv(pTHX_ SV * rop, SV * op1, SV * op2) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op1)))) +
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op1)))) +
                                                    strtod(SvPV_nolen(op2), NULL);
 }
 
 void sub_c(pTHX_ SV * rop, SV * op1, SV * op2) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op1)))) -
-                                                   *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op2))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op1)))) -
+                                                   *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op2))));
 }
 
 void sub_c_nv(pTHX_ SV * rop, SV * op1, SV * op2) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op1)))) -
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op1)))) -
                                                    (double)SvNV(op2);
 }
 
 void sub_c_iv(pTHX_ SV * rop, SV * op1, SV * op2) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op1)))) -
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op1)))) -
                                                    (double)SvIV(op2);
 }
 
 void sub_c_uv(pTHX_ SV * rop, SV * op1, SV * op2) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op1)))) -
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op1)))) -
                                                    (double)SvUV(op2);
 }
 
 void sub_c_pv(pTHX_ SV * rop, SV * op1, SV * op2) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op1)))) -
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op1)))) -
                                                    strtod(SvPV_nolen(op2), NULL);
 }
 
 void DESTROY(pTHX_ SV *  op) {
-     Safefree(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op))));
+     Safefree(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op))));
 }
 
 SV * real_c(pTHX_ SV * op) {
-     return newSVnv(creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op))))));
+     return newSVnv(creal(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op))))));
 }
 
 SV * imag_c(pTHX_ SV * op) {
-     return newSVnv(cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op))))));
+     return newSVnv(cimag(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op))))));
 }
 
 SV * arg_c(pTHX_ SV * op) {
-     return newSVnv(carg(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op))))));
+     return newSVnv(carg(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op))))));
 }
 
 SV * abs_c(pTHX_ SV * op) {
-     return newSVnv(cabs(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op))))));
+     return newSVnv(cabs(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op))))));
 }
 
 void conj_c(pTHX_ SV * rop, SV * op) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = conj(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op)))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = conj(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op)))));
 }
 
 void acos_c(pTHX_ SV * rop, SV * op) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = cacos(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op)))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = cacos(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op)))));
 }
 
 void asin_c(pTHX_ SV * rop, SV * op) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = casin(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op)))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = casin(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op)))));
 }
 
 void atan_c(pTHX_ SV * rop, SV * op) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = catan(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op)))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = catan(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op)))));
 }
 
 void cos_c(pTHX_ SV * rop, SV * op) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = ccos(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op)))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = ccos(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op)))));
 }
 
 void sin_c(pTHX_ SV * rop, SV * op) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = csin(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op)))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = csin(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op)))));
 }
 
 void tan_c(pTHX_ SV * rop, SV * op) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = ctan(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op)))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = ctan(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op)))));
 }
 
 void acosh_c(pTHX_ SV * rop, SV * op) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = cacosh(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op)))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = cacosh(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op)))));
 }
 
 void asinh_c(pTHX_ SV * rop, SV * op) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = casinh(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op)))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = casinh(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op)))));
 }
 
 void atanh_c(pTHX_ SV * rop, SV * op) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = catanh(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op)))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = catanh(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op)))));
 }
 
 void cosh_c(pTHX_ SV * rop, SV * op) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = ccosh(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op)))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = ccosh(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op)))));
 }
 
 void sinh_c(pTHX_ SV * rop, SV * op) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = csinh(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op)))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = csinh(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op)))));
 }
 
 void tanh_c(pTHX_ SV * rop, SV * op) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = ctanh(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op)))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = ctanh(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op)))));
 }
 
 void exp_c(pTHX_ SV * rop, SV * op) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = cexp(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op)))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = cexp(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op)))));
 }
 
 void log_c(pTHX_ SV * rop, SV * op) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = clog(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op)))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = clog(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op)))));
 }
 
 void sqrt_c(pTHX_ SV * rop, SV * op) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = csqrt(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op)))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = csqrt(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op)))));
 }
 
 void proj_c(pTHX_ SV * rop, SV * op) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = cproj(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op)))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = cproj(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op)))));
 }
 
 void pow_c(pTHX_ SV * rop, SV * op, SV * exp) {
-     *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))) = cpow(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(op)))),
-                                                        *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(exp)))));
+     *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))) = cpow(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(op)))),
+                                                        *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(exp)))));
 }
 
 SV * _overload_true(pTHX_ SV * rop, SV * second, SV * third) {
-     if (_is_nan(creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))))) &&
-         _is_nan(cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop))))))) return newSVuv(0);
-     if(creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop))))) ||
-        cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))))) return newSVuv(1);
+     if (_is_nan(creal(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))))) &&
+         _is_nan(cimag(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop))))))) return newSVuv(0);
+     if(creal(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop))))) ||
+        cimag(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))))) return newSVuv(1);
      return newSVuv(0);
 }
 
 SV * _overload_not(pTHX_ SV * rop, SV * second, SV * third) {
-     if (_is_nan(creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))))) &&
-         _is_nan(cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop))))))) return newSVuv(1);
-     if(creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop))))) ||
-        cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop)))))) return newSVuv(0);
+     if (_is_nan(creal(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))))) &&
+         _is_nan(cimag(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop))))))) return newSVuv(1);
+     if(creal(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop))))) ||
+        cimag(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop)))))) return newSVuv(0);
      return newSVuv(1);
 }
 
 SV * _overload_equiv(pTHX_ SV * a, SV * b, SV * third) {
       if(SvUOK(b)) {
-       if((double)SvUVX(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) &&
-          0.0              == cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))))) return newSVuv(1);
+       if((double)SvUVX(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))))) &&
+          0.0              == cimag(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))))) return newSVuv(1);
        return newSVuv(0);
      }
      if(SvIOK(b)) {
-       if((double)SvIVX(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) &&
-          0.0              == cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))))) return newSVuv(1);
+       if((double)SvIVX(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))))) &&
+          0.0              == cimag(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))))) return newSVuv(1);
        return newSVuv(0);
      }
      if(SvNOK(b)) {
-       if((double)SvNVX(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) &&
-          0.0    == cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))))) return newSVuv(1);
+       if((double)SvNVX(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))))) &&
+          0.0    == cimag(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))))) return newSVuv(1);
        return newSVuv(0);
      }
 
      if(SvPOK(b)) {
        if(!looks_like_number(b)) nnum++;
-       if(strtod(SvPV_nolen(b), NULL) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) &&
-          0.0 == cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))))) return newSVuv(1);
+       if(strtod(SvPV_nolen(b), NULL) == creal(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))))) &&
+          0.0 == cimag(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))))) return newSVuv(1);
        return newSVuv(0);
      }
 
      if(sv_isobject(b)) {
        const char *h = HvNAME(SvSTASH(SvRV(b)));
        if(strEQ(h, "Math::Complex_C")) {
-         if(creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(b))))) &&
-            cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) == cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(b))))))
+         if(creal(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))))) == creal(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(b))))) &&
+            cimag(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))))) == cimag(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(b))))))
               return newSVuv(1);
          return newSVuv(0);
        }
@@ -450,31 +450,31 @@ SV * _overload_equiv(pTHX_ SV * a, SV * b, SV * third) {
 
 SV * _overload_not_equiv(pTHX_ SV * a, SV * b, SV * third) {
      if(SvUOK(b)) {
-       if((double)SvUVX(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) &&
-          0.0              == cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))))) return newSVuv(0);
+       if((double)SvUVX(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))))) &&
+          0.0              == cimag(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))))) return newSVuv(0);
        return newSVuv(1);
      }
      if(SvIOK(b)) {
-       if((double)SvIVX(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) &&
-          0.0              == cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))))) return newSVuv(0);
+       if((double)SvIVX(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))))) &&
+          0.0              == cimag(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))))) return newSVuv(0);
        return newSVuv(1);
      }
      if(SvNOK(b)) {
-       if((double)SvNVX(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) &&
-          0.0    == cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))))) return newSVuv(0);
+       if((double)SvNVX(b) == creal(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))))) &&
+          0.0    == cimag(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))))) return newSVuv(0);
        return newSVuv(1);
      }
      if(SvPOK(b)) {
        if(!looks_like_number(b)) nnum++;
-       if(strtod(SvPV_nolen(b), NULL) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) &&
-          0.0 == cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))))) return newSVuv(0);
+       if(strtod(SvPV_nolen(b), NULL) == creal(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))))) &&
+          0.0 == cimag(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))))) return newSVuv(0);
        return newSVuv(1);
      }
      if(sv_isobject(b)) {
        const char *h = HvNAME(SvSTASH(SvRV(b)));
        if(strEQ(h, "Math::Complex_C")) {
-         if(creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) == creal(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(b))))) &&
-            cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))))) == cimag(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(b))))))
+         if(creal(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))))) == creal(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(b))))) &&
+            cimag(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))))) == cimag(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(b))))))
               return newSVuv(0);
          return newSVuv(1);
        }
@@ -499,32 +499,32 @@ SV * _overload_pow(pTHX_ SV * a, SV * b, SV * third) {
      if(SvUOK(b)) {
        __real__ t = (double)SvUVX(b);
        __imag__ t = 0.0;
-       *pc = cpow(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))), t);
+       *pc = cpow(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))), t);
        return obj_ref;
      }
      if(SvIOK(b)) {
        __real__ t = (double)SvIVX(b);
        __imag__ t = 0.0;
-       *pc = cpow(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))), t);
+       *pc = cpow(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))), t);
        return obj_ref;
      }
      if(SvNOK(b)) {
        __real__ t = (double)SvNVX(b);
        __imag__ t = 0.0;
-       *pc = cpow(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))), t);
+       *pc = cpow(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))), t);
        return obj_ref;
      }
      if(SvPOK(b)) {
        if(!looks_like_number(b)) nnum++;
        __real__ t = strtod(SvPV_nolen(b), NULL);
        __imag__ t = 0.0;
-       *pc = cpow(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))), t);
+       *pc = cpow(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))), t);
        return obj_ref;
      }
      else if(sv_isobject(b)) {
        const char *h = HvNAME(SvSTASH(SvRV(b)));
        if(strEQ(h, "Math::Complex_C")) {
-         *pc = cpow(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))), *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(b)))));
+         *pc = cpow(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))), *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(b)))));
          return obj_ref;
        }
      }
@@ -545,28 +545,28 @@ SV * _overload_mul(pTHX_ SV * a, SV * b, SV * third) {
      SvREADONLY_on(obj);
 
      if(SvUOK(b)) {
-       *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) * (double)SvUVX(b);
+       *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) * (double)SvUVX(b);
        return obj_ref;
      }
 
      if(SvIOK(b)) {
-       *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) * (double)SvIVX(b);
+       *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) * (double)SvIVX(b);
        return obj_ref;
      }
 
      if(SvNOK(b)) {
-       *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) * (double)SvNVX(b);
+       *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) * (double)SvNVX(b);
        return obj_ref;
      }
      if(SvPOK(b)) {
        if(!looks_like_number(b)) nnum++;
-       *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) * strtod(SvPV_nolen(b), NULL);
+       *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) * strtod(SvPV_nolen(b), NULL);
        return obj_ref;
      }
      if(sv_isobject(b)) {
        const char *h = HvNAME(SvSTASH(SvRV(b)));
        if(strEQ(h, "Math::Complex_C")) {
-         *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) * *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(b))));
+         *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) * *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(b))));
          return obj_ref;
        }
      }
@@ -588,28 +588,28 @@ SV * _overload_add(pTHX_ SV * a, SV * b, SV * third) {
      SvREADONLY_on(obj);
 
      if(SvUOK(b)) {
-       *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) + (double)SvUVX(b);
+       *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) + (double)SvUVX(b);
        return obj_ref;
      }
 
      if(SvIOK(b)) {
-       *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) + (double)SvIVX(b);
+       *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) + (double)SvIVX(b);
        return obj_ref;
      }
 
      if(SvNOK(b)) {
-       *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) + (double)SvNVX(b);
+       *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) + (double)SvNVX(b);
        return obj_ref;
      }
      if(SvPOK(b)) {
        if(!looks_like_number(b)) nnum++;
-       *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) + strtod(SvPV_nolen(b), NULL);
+       *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) + strtod(SvPV_nolen(b), NULL);
        return obj_ref;
      }
      if(sv_isobject(b)) {
        const char *h = HvNAME(SvSTASH(SvRV(b)));
        if(strEQ(h, "Math::Complex_C")) {
-         *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) + *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(b))));
+         *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) + *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(b))));
          return obj_ref;
        }
      }
@@ -631,32 +631,32 @@ SV * _overload_div(pTHX_ SV * a, SV * b, SV * third) {
      SvREADONLY_on(obj);
 
      if(SvUOK(b)) {
-       if(third == &PL_sv_yes) *pc = (double)SvUVX(b) / *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
-       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) / (double)SvUVX(b);
+       if(third == &PL_sv_yes) *pc = (double)SvUVX(b) / *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))));
+       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) / (double)SvUVX(b);
        return obj_ref;
      }
 
      if(SvIOK(b)) {
-       if(third == &PL_sv_yes) *pc = (double)SvIVX(b) / *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
-       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) / (double)SvIVX(b);
+       if(third == &PL_sv_yes) *pc = (double)SvIVX(b) / *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))));
+       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) / (double)SvIVX(b);
        return obj_ref;
      }
 
      if(SvNOK(b)) {
-       if(third == &PL_sv_yes) *pc = (double)SvNVX(b) / *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
-       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) / (double)SvNVX(b);
+       if(third == &PL_sv_yes) *pc = (double)SvNVX(b) / *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))));
+       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) / (double)SvNVX(b);
        return obj_ref;
      }
      if(SvPOK(b)) {
        if(!looks_like_number(b)) nnum++;
-       if(third == &PL_sv_yes) *pc = strtod(SvPV_nolen(b), NULL) / *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
-       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) / strtod(SvPV_nolen(b), NULL);
+       if(third == &PL_sv_yes) *pc = strtod(SvPV_nolen(b), NULL) / *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))));
+       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) / strtod(SvPV_nolen(b), NULL);
        return obj_ref;
      }
      if(sv_isobject(b)) {
        const char *h = HvNAME(SvSTASH(SvRV(b)));
        if(strEQ(h, "Math::Complex_C")) {
-         *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) / *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(b))));
+         *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) / *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(b))));
          return obj_ref;
        }
      }
@@ -678,32 +678,32 @@ SV * _overload_sub(pTHX_ SV * a, SV * b, SV * third) {
      SvREADONLY_on(obj);
 
      if(SvUOK(b)) {
-       if(third == &PL_sv_yes) *pc = (double)SvUVX(b) - *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
-       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) - (double)SvUVX(b);
+       if(third == &PL_sv_yes) *pc = (double)SvUVX(b) - *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))));
+       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) - (double)SvUVX(b);
        return obj_ref;
      }
 
      if(SvIOK(b)) {
-       if(third == &PL_sv_yes) *pc = (double)SvIVX(b) - *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
-       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) - (double)SvIVX(b);
+       if(third == &PL_sv_yes) *pc = (double)SvIVX(b) - *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))));
+       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) - (double)SvIVX(b);
        return obj_ref;
      }
 
      if(SvNOK(b)) {
-       if(third == &PL_sv_yes) *pc = (double)SvNVX(b) - *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
-       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) - (double)SvNVX(b);
+       if(third == &PL_sv_yes) *pc = (double)SvNVX(b) - *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))));
+       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) - (double)SvNVX(b);
        return obj_ref;
      }
      if(SvPOK(b)) {
        if(!looks_like_number(b)) nnum++;
-       if(third == &PL_sv_yes) *pc = strtod(SvPV_nolen(b), NULL) - *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
-       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) - strtod(SvPV_nolen(b), NULL);
+       if(third == &PL_sv_yes) *pc = strtod(SvPV_nolen(b), NULL) - *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))));
+       else *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) - strtod(SvPV_nolen(b), NULL);
        return obj_ref;
      }
      if(sv_isobject(b)) {
        const char *h = HvNAME(SvSTASH(SvRV(b)));
        if(strEQ(h, "Math::Complex_C")) {
-         *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) - *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(b))));
+         *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) - *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(b))));
          return obj_ref;
        }
      }
@@ -721,7 +721,7 @@ SV * _overload_sqrt(pTHX_ SV * a, SV * b, SV * third) {
      obj_ref = newSV(0);
      obj = newSVrv(obj_ref, "Math::Complex_C");
 
-     *pc = csqrt(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))));
+     *pc = csqrt(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))));
 
      sv_setiv(obj, INT2PTR(IV,pc));
      SvREADONLY_on(obj);
@@ -735,33 +735,33 @@ SV * _overload_pow_eq(pTHX_ SV * a, SV * b, SV * third) {
      if(SvUOK(b)) {
        __real__ t = (double)SvUVX(b);
        __imag__ t = 0.0;
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) = cpow(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))), t);
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) = cpow(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))), t);
        return a;
      }
      if(SvIOK(b)) {
        __real__ t = (double)SvIVX(b);
        __imag__ t = 0.0;
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) = cpow(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))), t);
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) = cpow(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))), t);
        return a;
      }
      if(SvNOK(b)) {
        __real__ t = (double)SvNVX(b);
        __imag__ t = 0.0;
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) = cpow(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))), t);
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) = cpow(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))), t);
        return a;
      }
      if(SvPOK(b)) {
        if(!looks_like_number(b)) nnum++;
        __real__ t = strtod(SvPV_nolen(b), NULL);
        __imag__ t = 0.0;
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) = cpow(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))), t);
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) = cpow(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))), t);
        return a;
      }
      if(sv_isobject(b)) {
        const char *h = HvNAME(SvSTASH(SvRV(b)));
        if(strEQ(h, "Math::Complex_C")) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) = cpow(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))),
-                                                        *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(b)))));
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) = cpow(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))),
+                                                        *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(b)))));
          return a;
        }
      }
@@ -773,30 +773,30 @@ SV * _overload_mul_eq(pTHX_ SV * a, SV * b, SV * third) {
      SvREFCNT_inc(a);
 
      if(SvUOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) *= (double)SvUVX(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) *= (double)SvUVX(b);
        return a;
      }
 
      if(SvIOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) *= (double)SvIVX(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) *= (double)SvIVX(b);
        return a;
      }
 
      if(SvNOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) *= (double)SvNVX(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) *= (double)SvNVX(b);
        return a;
      }
 
      if(SvPOK(b)) {
        if(!looks_like_number(b)) nnum++;
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) *= strtod(SvPV_nolen(b), NULL);
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) *= strtod(SvPV_nolen(b), NULL);
        return a;
      }
 
      if(sv_isobject(b)) {
        const char *h = HvNAME(SvSTASH(SvRV(b)));
        if(strEQ(h, "Math::Complex_C")) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) *= *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(b))));
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) *= *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(b))));
          return a;
        }
      }
@@ -809,30 +809,30 @@ SV * _overload_add_eq(pTHX_ SV * a, SV * b, SV * third) {
      SvREFCNT_inc(a);
 
      if(SvUOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) += (double)SvUVX(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) += (double)SvUVX(b);
        return a;
      }
 
      if(SvIOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) += (double)SvIVX(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) += (double)SvIVX(b);
        return a;
      }
 
      if(SvNOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) += (double)SvNVX(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) += (double)SvNVX(b);
        return a;
      }
 
      if(SvPOK(b)) {
        if(!looks_like_number(b)) nnum++;
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) += strtod(SvPV_nolen(b), NULL);
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) += strtod(SvPV_nolen(b), NULL);
        return a;
      }
 
      if(sv_isobject(b)) {
        const char *h = HvNAME(SvSTASH(SvRV(b)));
        if(strEQ(h, "Math::Complex_C")) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) += *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(b))));
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) += *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(b))));
          return a;
        }
      }
@@ -845,30 +845,30 @@ SV * _overload_div_eq(pTHX_ SV * a, SV * b, SV * third) {
      SvREFCNT_inc(a);
 
      if(SvUOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) /= (double)SvUVX(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) /= (double)SvUVX(b);
        return a;
      }
 
      if(SvIOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) /= (double)SvIVX(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) /= (double)SvIVX(b);
        return a;
      }
 
      if(SvNOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) /= (double)SvNVX(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) /= (double)SvNVX(b);
        return a;
      }
 
      if(SvPOK(b)) {
        if(!looks_like_number(b)) nnum++;
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) /= strtod(SvPV_nolen(b), NULL);
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) /= strtod(SvPV_nolen(b), NULL);
        return a;
      }
 
      if(sv_isobject(b)) {
        const char *h = HvNAME(SvSTASH(SvRV(b)));
        if(strEQ(h, "Math::Complex_C")) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) /= *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(b))));
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) /= *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(b))));
          return a;
        }
      }
@@ -881,30 +881,30 @@ SV * _overload_sub_eq(pTHX_ SV * a, SV * b, SV * third) {
      SvREFCNT_inc(a);
 
      if(SvUOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) -= (double)SvUVX(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) -= (double)SvUVX(b);
        return a;
      }
 
      if(SvIOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) -= (double)SvIVX(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) -= (double)SvIVX(b);
        return a;
      }
 
      if(SvNOK(b)) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) -= (double)SvNVX(b);
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) -= (double)SvNVX(b);
        return a;
      }
 
      if(SvPOK(b)) {
        if(!looks_like_number(b)) nnum++;
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) -= strtod(SvPV_nolen(b), NULL);
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) -= strtod(SvPV_nolen(b), NULL);
        return a;
      }
 
      if(sv_isobject(b)) {
        const char *h = HvNAME(SvSTASH(SvRV(b)));
        if(strEQ(h, "Math::Complex_C")) {
-       *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) -= *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(b))));
+       *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) -= *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(b))));
          return a;
        }
      }
@@ -924,8 +924,8 @@ SV * _overload_copy(pTHX_ SV * a, SV * second, SV * third) {
      obj_ref = newSV(0);
      obj = newSVrv(obj_ref, "Math::Complex_C");
 
-     __real__ *pc = __real__ *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
-     __imag__ *pc = __imag__ *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a))));
+     __real__ *pc = __real__ *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))));
+     __imag__ *pc = __imag__ *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a))));
 
      sv_setiv(obj, INT2PTR(IV,pc));
      SvREADONLY_on(obj);
@@ -934,7 +934,7 @@ SV * _overload_copy(pTHX_ SV * a, SV * second, SV * third) {
 }
 
 SV * _overload_abs(pTHX_ SV * rop, SV * second, SV * third) {
-     return newSVnv(cabs(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(rop))))));
+     return newSVnv(cabs(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(rop))))));
 }
 
 SV * _overload_exp(pTHX_ SV * a, SV * b, SV * third) {
@@ -947,7 +947,7 @@ SV * _overload_exp(pTHX_ SV * a, SV * b, SV * third) {
      obj_ref = newSV(0);
      obj = newSVrv(obj_ref, "Math::Complex_C");
 
-     *pc = cexp(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))));
+     *pc = cexp(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))));
 
      sv_setiv(obj, INT2PTR(IV,pc));
      SvREADONLY_on(obj);
@@ -964,7 +964,7 @@ SV * _overload_log(pTHX_ SV * a, SV * b, SV * third) {
      obj_ref = newSV(0);
      obj = newSVrv(obj_ref, "Math::Complex_C");
 
-     *pc = clog(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))));
+     *pc = clog(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))));
 
      sv_setiv(obj, INT2PTR(IV,pc));
      SvREADONLY_on(obj);
@@ -981,7 +981,7 @@ SV * _overload_sin(pTHX_ SV * a, SV * b, SV * third) {
      obj_ref = newSV(0);
      obj = newSVrv(obj_ref, "Math::Complex_C");
 
-     *pc = csin(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))));
+     *pc = csin(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))));
 
      sv_setiv(obj, INT2PTR(IV,pc));
      SvREADONLY_on(obj);
@@ -998,7 +998,7 @@ SV * _overload_cos(pTHX_ SV * a, SV * b, SV * third) {
      obj_ref = newSV(0);
      obj = newSVrv(obj_ref, "Math::Complex_C");
 
-     *pc = ccos(*(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))));
+     *pc = ccos(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))));
 
      sv_setiv(obj, INT2PTR(IV,pc));
      SvREADONLY_on(obj);
@@ -1015,8 +1015,8 @@ SV * _overload_atan2(pTHX_ SV * a, SV * b, SV * third) {
      obj_ref = newSV(0);
      obj = newSVrv(obj_ref, "Math::Complex_C");
 
-     *pc = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(a)))) /
-           *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(b)))) ;
+     *pc = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))) /
+           *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(b)))) ;
 
      *pc = catan(*pc);
 
@@ -1108,7 +1108,7 @@ void _d_to_str(pTHX_ SV * ld) {
        if(strEQ(h, "Math::Complex_C")) {
           EXTEND(SP, 2);
 
-          t = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(ld))));
+          t = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(ld))));
 /**/
           Newx(rbuffer, 8 + _MATH_COMPLEX_C_DIGITS, char);
           if(rbuffer == NULL) croak("Failed to allocate memory in d_to_str");
@@ -1153,7 +1153,7 @@ void _d_to_strp(pTHX_ SV * ld, int decimal_prec) {
        const char *h = HvNAME(SvSTASH(SvRV(ld)));
        if(strEQ(h, "Math::Complex_C")) {
           EXTEND(SP, 2);
-          t = *(INT2PTR(MATH_COMPLEX *, SvIV(SvRV(ld))));
+          t = *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(ld))));
 /* new */
           Newx(rbuffer, 8 + decimal_prec, char);
           if(rbuffer == NULL) croak("Failed to allocate memory in d_to_strp");
