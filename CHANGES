@@ -1,4 +1,7 @@
 0.14
+ - Fix https://github.com/sisyphus/math-decimal64/pull/1 (also aplies to Math::Complex_C)
+   Thanks to @hiratara
+ - Fix overload_pow() for the case that the third argument is true
  - Replace SvIV/SvUV/SvNV with SvIVX/SvUVx/SvNVX where appropriate.
 
 0.13
