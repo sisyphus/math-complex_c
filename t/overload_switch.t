@@ -1,6 +1,6 @@
 # This file created in response to:
 # https://github.com/sisyphus/math-decimal64/pull/1,
-# which aqlso applies to Math::Complex_C
+# which also applies to Math::Complex_C
 # Thanks to @hiratara
 
 use strict;
