@@ -32,7 +32,7 @@ use overload
     'atan2' => \&_overload_atan2,
 ;
 
-our $VERSION = '0.14';
+our $VERSION = '0.15';
 
 Math::Complex_C->DynaLoader::bootstrap($VERSION);
 
