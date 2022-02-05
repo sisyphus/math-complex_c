@@ -11,7 +11,8 @@
 #include "perl.h"
 #include "XSUB.h"
 
-#include "math_complex_C_include.h"
+
+#include "math_complex_c_include.h"
 
 #define MATH_COMPLEX double _Complex
 
