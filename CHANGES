@@ -1,4 +1,6 @@
 0.15
+ - Fix typo in Complex_C.xs that prevents this module from building on case-sensitive
+   filesystems. ("C" ne "c".)
 
 0.14
  - Fix https://github.com/sisyphus/math-decimal64/pull/1 (also aplies to Math::Complex_C)
