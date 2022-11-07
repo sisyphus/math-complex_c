@@ -36,30 +36,19 @@ our $VERSION = '0.17';
 
 Math::Complex_C->DynaLoader::bootstrap($VERSION);
 
-@Math::Complex_C::EXPORT = ();
-@Math::Complex_C::EXPORT_OK = qw(
-
+my @tagged = qw(
     create_c assign_c mul_c mul_c_nv mul_c_iv mul_c_uv div_c div_c_nv div_c_iv div_c_uv add_c
     add_c_nv add_c_iv add_c_uv sub_c sub_c_nv sub_c_iv sub_c_uv real_c
     imag_c arg_c abs_c conj_c acos_c asin_c atan_c cos_c sin_c tan_c acosh_c asinh_c atanh_c
     cosh_c sinh_c tanh_c exp_c log_c sqrt_c proj_c pow_c
     get_nan get_neg_inf get_inf is_nan is_inf MCD
     add_c_pv sub_c_pv mul_c_pv div_c_pv
-
     str_to_d d_to_str d_to_strp d_set_prec d_get_prec set_real_c set_imag_c
     );
 
-%Math::Complex_C::EXPORT_TAGS = (all => [qw(
-
-    create_c assign_c mul_c mul_c_nv mul_c_iv mul_c_uv div_c div_c_nv div_c_iv div_c_uv add_c
-    add_c_nv add_c_iv add_c_uv sub_c sub_c_nv sub_c_iv sub_c_uv real_c
-    imag_c arg_c abs_c conj_c acos_c asin_c atan_c cos_c sin_c tan_c acosh_c asinh_c atanh_c
-    cosh_c sinh_c tanh_c exp_c log_c sqrt_c proj_c pow_c
-    get_nan get_neg_inf get_inf is_nan is_inf MCD
-    add_c_pv sub_c_pv mul_c_pv div_c_pv
-
-    str_to_d d_to_str d_to_strp d_set_prec d_get_prec set_real_c set_imag_c
-    )]);
+@Math::Complex_C::EXPORT = ();
+@Math::Complex_C::EXPORT_OK = @tagged;
+%Math::Complex_C::EXPORT_TAGS = (all => \@tagged);
 
 sub dl_load_flags {0} # Prevent DynaLoader from complaining and croaking
 
