@@ -532,14 +532,16 @@ SV * _overload_pow(pTHX_ SV * a, SV * b, SV * third) {
        *pc = MY_CPOW(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))), t);
        return obj_ref;
      }
-     else if(sv_isobject(b)) {
+
+     if(sv_isobject(b)) {
        const char *h = HvNAME(SvSTASH(SvRV(b)));
        if(strEQ(h, "Math::Complex_C")) {
          *pc = MY_CPOW(*(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(a)))), *(INT2PTR(MATH_COMPLEX *, SvIVX(SvRV(b)))));
          return obj_ref;
        }
      }
-     else croak("Invalid argument supplied to Math::Complex_C::_overload_pow function");
+
+     croak("Invalid argument supplied to Math::Complex_C::_overload_pow function");
 }
 
 SV * _overload_mul(pTHX_ SV * a, SV * b, SV * third) {
