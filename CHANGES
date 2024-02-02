@@ -1,4 +1,5 @@
 0.17
+ - Silence pointless warnings
 
 0.16
  - Allow for compiler bug (gcc-4.4.3) in Strawberry Perl versions 5.12.x.

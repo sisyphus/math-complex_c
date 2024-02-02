@@ -4,6 +4,7 @@ Complex_C.xs
 Makefile.PL
 MANIFEST
 math_complex_c_include.h
+math_complex_c_unused.h
 README
 try.in
 try2.in
