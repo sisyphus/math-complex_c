@@ -1134,7 +1134,7 @@ void _d_to_str(pTHX_ SV * ld) {
      MATH_COMPLEX t;
      char *rbuffer;
      int query;
-     PERL_UNUSED_ARG(items);
+     PERL_UNUSED_VAR(items);
 
      if(sv_isobject(ld)) {
        const char *h = HvNAME(SvSTASH(SvRV(ld)));
@@ -1179,7 +1179,7 @@ void _d_to_strp(pTHX_ SV * ld, int decimal_prec) {
      MATH_COMPLEX t;
      char *rbuffer;
      int query;
-     PERL_UNUSED_ARG(items);
+     PERL_UNUSED_VAR(items);
 
 
      if(decimal_prec < 1)croak("2nd arg (precision) to _d_to_strp  must be at least 1");
